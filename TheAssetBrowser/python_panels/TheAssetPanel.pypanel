@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pythonPanelDocument>
+  <!-- This file contains definitions of Python interfaces and the
+ interfaces menu.  It should not be hand-edited when it is being
+ used by the application.  Note, that two definitions of the
+ same interface or of the interfaces menu are not allowed
+ in a single file. -->
+  <interface name="theassetbrowser" label="The Asset Browser" icon="MISC_python" showNetworkNavigationBar="true" help_url="">
+    <script><![CDATA[from importlib import reload
+import sys
+assetbrowser_path = hou.getenv('HOUDINI_PACKAGE_DIR')
+sys.path.append(assetbrowser_path)
+import TheAssetBrowser.ui_main_panel
+
+def onCreateInterface():
+    reload(TheAssetBrowser.ui_main_panel)
+    return TheAssetBrowser.ui_main_panel.UiMainWidget()]]></script>
+    <includeInPaneTabMenu menu_position="0" create_separator="false"/>
+    <includeInToolbarMenu menu_position="205" create_separator="false"/>
+    <help><![CDATA[]]></help>
+  </interface>
+</pythonPanelDocument>

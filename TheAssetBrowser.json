@@ -1,0 +1,21 @@
+{
+    "hpath": "$THEASSETBROWSER",
+    "load_package_once": true,
+    "env": [
+        {
+            "var": "HOUDINI_PACKAGE_DIR",
+            "value": "$HOUDINI_USER_PREF_DIR/packages",
+            "method": "append"
+        },
+        {
+            "var": "THEASSETBROWSER",
+            "value": "$HOUDINI_USER_PREF_DIR/packages/TheAssetBrowser",
+            "method": "set"
+        },
+        {
+            "var": "HOUDINI_PYTHON_PANEL_PATH",
+            "value": "$HOUDINI_USER_PREF_DIR/packages/TheAssetBrowser/python_panels",
+            "method": "append"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+QWidget{
+}
+
+QListWidget{
+
+}
+
+QListWidget::item{
+    color: rgb(150, 150, 150);
+}
+
+QListWidget::item::selected {
+    color: rgb(210, 210, 210);
+    font-weight: bold;
+}
+
+QListWidget::item:hover {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+QSplitter > {
+
+}
+
+QListWidgetItem{
+
+}
+
+QListView {
+
+}
+
