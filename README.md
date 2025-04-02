@@ -8,7 +8,7 @@ To install assetbrowser in houdini:
 4. In houdini open new Pane Tab Type --> click The Asset Browser
 
 <h3>Folder structure</h3>
-Folder structure is based on the quixel bridge for seamless support
+Folder structure is based on quixel bridge for seamless support
 <pre>
 root
   |
