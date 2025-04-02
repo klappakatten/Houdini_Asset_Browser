@@ -1,5 +1,5 @@
 # Houdini Asset Browser
-
+<pre>
 root
   |
   |--Category
@@ -33,3 +33,4 @@ root
                   |-----thumbnail.png
                   |
                   |-----asset.json
+</pre>
