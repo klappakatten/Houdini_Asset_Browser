@@ -3,7 +3,7 @@
 To install assetbrowser in houdini:
 
 1. Add files to documents/houdini20.5/packages
-2. Make sure TheAssetBrowser.json is outside of TheAssetBrowsr folder
+2. Make sure TheAssetBrowser.json is outside of TheAssetBrowser folder
 3. set default path in TheAssetBrowser/settings.json (optional)
 4. In houdini open new Pane Tab Type --> click The Asset Browser
 
