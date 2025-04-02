@@ -1,1 +1,1 @@
-# Houdini_AssetBrowser
+# Houdini Asset Browser
