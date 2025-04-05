@@ -49,8 +49,12 @@ def create_import_nodes(asset):
 
         if asset.mesh == "default" or asset.mesh == "":
             file_node.destroy()
-            file_node = tab_node.createNode("testgeometry_shaderball::2.0")
-            file_node.parm("ry").set(-90)
+            #file_node = tab_node.createNode("testgeometry_shaderball::2.0")
+            #file_node.parm("ry").set(-90)
+            file_node = tab_node.createNode("grid")
+            file_node.parm("type").set(2)
+            file_node.parm("rx").set(-90)
+            file_node.parm("ty").setExpression('ch("sizey")/2')
             transform_node.parm("scale").set(1)
 
         # Set Inputs
@@ -65,8 +69,8 @@ def create_import_nodes(asset):
         set_textures(textures, shader_node)
 
         tab_node.layoutChildren()
-        obj.layoutChildren()
-        geo_node.layoutChildren()
+        #obj.layoutChildren()
+        #geo_node.layoutChildren()
 
         hou.clearAllSelected()
 
@@ -82,7 +86,7 @@ def set_textures(textures, shader_node):
         texture = texture.lower()
         file_ending_removed = texture.replace(".jpg", "")
         file_ending_removed = file_ending_removed.replace(".png", "")
-        if "color" in texture.lower() or file_ending_removed.endswith("_c"):
+        if "color" in texture.lower() or "albedo" in texture.lower() or file_ending_removed.endswith("_c") :
             shader_node.parm("basecolor_useTexture").set(True)
             shader_node.parm("basecolor_texture").set(texture)
             shader_node.setParms({
@@ -107,6 +111,7 @@ def set_textures(textures, shader_node):
         if "ao" in texture.lower() or file_ending_removed.endswith("_ao"):
             shader_node.parm("occlusion_useTexture").set(True)
             shader_node.parm("occlusion_texture").set(texture)
+        #Specular
 
 
 def switch_asset(asset_item):
@@ -160,11 +165,18 @@ def frame_object_with_camera(camera, target, margin=3):
 def generate_missing_thumbnails(assets):
     # Prevent undo actions
     with hou.undos.disabler():
+
+        resolution_x = 640
+        resolution_y = 360
+
         obj = hou.node("/obj")
         ropnet = obj.createNode("ropnet")
         light_source = obj.createNode("hlight::2.0")
         camera = obj.createNode("cam")
         opengl = ropnet.createNode("opengl")
+
+        camera.parm("resx").set(resolution_x)
+        camera.parm("resy").set(resolution_y)
 
         opengl.parm("camera").set(camera.path())
         opengl.parm("gamma").set(1.7)
